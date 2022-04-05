@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <a href="https://github.com/github_Abhayparashar/Diabetes-prediction">
+  <a href=" https://github.com/predictionofdiabetes/predict">
     <img src="images/profile.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -9,12 +9,12 @@
   <p align="center">
     In this i've tried to predict the probability of a person having diabetes based on some data fields...
     <br />
-    <a href="https://ap31-diabetes-prediction.herokuapp.com/"><strong>View Deployment On Heroku »</strong></a>
+    <a href="  diabetesexamine.herokuapp.com/"><strong>View Deployment On Heroku »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Abhayparashar31/Diabetes-prediction">View Codes</a>
+    <a href="https://github.com/predictionofdiabetes/predict">View Codes</a>
     ·
-    <a>Report Bug -> parasharabhay13@gmail.com</a>
+ 
     
   </p>
 </p>
