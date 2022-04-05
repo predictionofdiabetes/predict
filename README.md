@@ -37,11 +37,11 @@
 <!-- ABOUT THE PROJECT -->
 ## Project
 
- <a href="https://github.com/github_Abhayparashar/price-compare-app">
+ <a href= "https://github.com/predictionofdiabetes/predict">
     <img src="images/img.png">   <img src="images/img1.png"> <img src="images/img2.png">
   </a>
 
-`Abhayparashar31`, `Diabetes-prediction`,  `parasharabhay13@gmail.com`
+  Diabetes-prediction
 
 
 ### Built With
@@ -73,7 +73,7 @@ Version python 3.8 <
  
 1. Clone the repo
 ```
-git clone https://github.com/github_Abhayparashar31/Diabetes-prediction.git
+git clone  https://github.com/predictionofdiabetes/predict
 ```
 2. Install Python Libraries
 ```
@@ -89,27 +89,12 @@ import matplolib.pyplot as plt
 from flask import Flask,request, url_for, redirect, render_template
 import pickle
 ```
-## Contributers
+ 
 
-Abhayparashar31
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+  
 
 
 
-<!-- CONTACT -->
-## Contact
+ 
 
-Your Name - Abhayparashar31
-
-Project Link: [https://github.com/Abhayparashar31/Diabetes-prediction/](https://github.com/Abhayparashar31/Diabetes-prediction/)
-
-
-## References
-* Stackoverflow
-* flask
+ 
