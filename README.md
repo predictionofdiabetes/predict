@@ -29,19 +29,17 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Contributers](#contributers)
-* [License](#license)
-* [Contact](#contact)
+ 
 
 
 <!-- ABOUT THE PROJECT -->
 ## Project
 
  <a href= "https://github.com/predictionofdiabetes/predict">
-    <img src="images/img.png">   <img src="images/img1.png"> <img src="images/img2.png">
+   
   </a>
 
-  Diabetes-prediction
+  Diabetes-prediction abbas shaik mohammad haneef
 
 
 ### Built With
