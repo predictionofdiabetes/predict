@@ -1,248 +1,220 @@
-  <html>
-
+ <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>{% block title %}Kare.AI{% endblock %}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Diabetes prediction</title>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-<style>
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
-
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Ubuntu', sans-serif;
-}
-
-body{
-  background: #7f7df9;
-}
-
-.contact-us{
-  width: 250px;
-  background: #fff;
-  padding: 50px;
-  margin: 100px auto;
-  border-radius: 30px;
-  position: relative;
-}
-
-.title h1{
-  color: #535274;
-  letter-spacing: 5px;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-.form,
-.form-items{
-  width: 100%;
-}
-
-.form-items .input{
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 15px 40px;
-  box-sizing: border-box;
-  background: #ebeef1;
-  border: 0px;
-  outline: none;
-  border-radius: 30px;
-}
-
-.form-items .input.message{
-  height: 125px;
-  border-radius: 15px;
-  margin-bottom: 30px;
-  padding: 15px 15px;
-  resize: none;
-}
-
-.btn{
-  background: #827ffe;
-  text-align: center;
-  color: #fff;
-  padding: 12px;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.btn .fas{
-  margin-left: 10px;
-  font-size: 12px;
-}
-
-.form-items{
-  position: relative;
-}
-
-.form-items .fas{
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  color: #9a99aa;
-}
-
-.social-icons{
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  width: 200px;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: space-around;
-}
-
-.social-icons div{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  position: relative;
-  cursor: pointer;
-}
-
-
-.social-icons div .fab{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: #fff;
-}
-
-.social-icons div.facebook{
-  background: #5178d9;
-}
-
-.social-icons div.twitter{
-  background: #41caf6;
-}
-
-.social-icons div.google{
-  background: #fb4f4f;
-}
-
-</style>
-
-<script>function validateform(){
-
-var Pregnancies=document.form1.Pregnancies.value;
-var Glucose=document.form1.Glucose.value;
-var BloodPressure=document.form1.BloodPressure.value;
-var SkinThickness=document.form1.SkinThickness.value;
-var Insulin=document.form1.Insulin.value;
-var BMI=document.form1.BMI.value;
-var DiabetesPedigreeFunction=document.form1.DiabetesPedigreeFunction.value;
-var Age=document.form1.Age.value;
-
-if (Pregnancies==null || Pregnancies==""){
-  alert("Pregnancies can't be blank");
-  return false;
-}else if (Glucose==null || Glucose==""){
-  alert("Glucose can't be blank");
-  return false;
-  }
-  else if (BloodPressure==null || BloodPressure==""){
-  alert("BloodPressure can't be blank");
-  return false;
-  }
-  else if (SkinThickness==null || SkinThickness==""){
-  alert("SkinThickness can't be blank");
-  return false;
-  }
-  else if (Insulin==null || Insulin==""){
-  alert("Insulin can't be blank");
-  return false;
-  }  else if (BMI==null || BMI==""){
-  alert("BMI can't be blank");
-  return false;
-  }
-  else if (DiabetesPedigreeFunction==null || DiabetesPedigreeFunction==""){
-  alert("DiabetesPedigreeFunction can't be blank");
-  return false;
-  }
-   else (Age==null || Age==""){
-  alert("Age can't be blank");
-  return false;
-  }
-}  </script>
-
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+
 <body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Diabetes Prediction</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Home</a></li>
+      </ul>
+
+  </nav>
 
 
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+     <h5 style="text-align: center; color: brown; font-weight: 600;">{{pred}}</h5>
+      <h1 class="header center orange-text">Diabetico</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Predict the probability of having Diabetes
+        <br>
+        </h5>
+      </div>
 
-  <div class="contact-us">
-    <div class="title">
-      <h1>Diabetes Prediction</h1>
+
+      <div class="row">
+        <form action='/predict' method="post" class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="last_name"><b>Gender</b></label>
+                    <br>
+                    <input id="last_name" name="1" placeholder="0 - Male or 1 - Female"  type="text" class="validate">
+                </div>
+                
+                <div class="input-field col s4">
+                    <label for="first_name"><b>Pregnancies</b></label>
+                    <br>
+                    <input placeholder="No. of Pregnancies(Female)" name="2" id="first_name" type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>BloodPressure	 </b></label>
+                    <br>
+                    <input id="last_name" name="3" placeholder="70-140"  type="text" class="validate">
+    
+                </div>
+    
+        
+    
+                </div>
+                <div class="input-field col s4">
+                    <label for="first_name"><b>Urination_frequency</b></label>
+                    <br>
+                    <input placeholder="No. of times in a day" name="4" id="first_name" type="text" class="validate">
+                </div>
+                
+                <div class="input-field col s4">
+                  <label ><b>BMI</b></label>
+                  <br>
+                  <input name = '5' placeholder="15-35">
+
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>Hereditary</b></label>
+                    <br>
+                    <input id="last_name" name="6" placeholder="0 - No or 1 - Yes"  type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="_name"><b>Age</b></label>
+                    <br>
+                    <input id="_name" name="7" placeholder="Age" type="text" class="validate">
+                </div>
+    
+          </div>
+    
+          <div class="row center">
+    
+              <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+
+          </div>
+        </form>
+  </div>
+
+      <br>
+
+     
+    <br><br>
+  </div>
+  </div>>
+  
+  <footer class="page-footer orange">
+    <div class="footer-copyright">
+      <div class="container" style="padding-bottom: 1rem; position: fixed; font-size: 1.2rem; margin-left: 5rem;">
+        <p>&copy; Diabetigo</p>
+        <p>FAZER</p>
+      </div>
     </div>
-    <div class="form">
-  		<form id="form1" name="form1" method="post", action="/diabetes_pre/" onsubmit=" return validateform()" >
-
-      <div class="form-items">
-        <input type="text" class="input" name="Pregnancies" id="Pregnancies" placeholder="Pregnancies">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="Glucose" id="Glucose" placeholder="Glucose">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="BloodPressure" id="BloodPressure" placeholder="BloodPressure">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="SkinThickness" id="SkinThickness" placeholder="SkinThickness">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="Insulin" id="Insulin" placeholder="Insulin">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="BMI" id="BMI" placeholder="BMI">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction">
-      </div>
-  		<div class="form-items">
-        <input type="text" class="input" name="Age" id="Age" placeholder="Age">
-      </div>
+  </footer>
 
 
-    </div>
-<div align="center">
-    <button type="submit" form="form1" value="Submit" class="btn">Submit<i class="fas fa-arrow-right">      </i>
-</button>
-
-    <button  type="reset" form="form1" value="reset" class="btn">Clear<i class="fas fa-arrow-right">     </i>
-</button>
-</div>
-
-
-
-   <br>
-   <br>
-   <br>
-   <br>
- <center><h1><b>Prediction:</b></h1><h1 color="red"><b> result </b></h1>
-</center>
-
- 
- 
-
-
+  <div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+  
+  /* Button used to open the chat form - fixed at the bottom of the page */
+  .open-button {
+    background-color: #ffa600;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 46px;
+    right: 56px;
+    width: 80px;
+    border-radius: 100%;
+    text-align: center;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* When the textarea gets focus, do something */
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+    text-align: center;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  </style>
+  </head>
+  <body>
+  
+  
+  <button class="open-button" onclick="openForm()">Chat</button>
+  
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      
+  <iframe width="300" height="400" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/500022db-0b0d-4d62-9dcf-6fcdd1b7c1e7"></iframe>
+      
+     
+      <button type="button" class="btn cancel" onclick="closeForm()" style="padding-top: 0px;"><center>Close</center></button>
+    </form>
+  </div>
+   
+<script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+  
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src=".js/materialize.js"></script>
   <script src="js/init.js"></script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/625572097b967b11798a5c39/1g0esatjf';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+
   </body>
 </html>
-
